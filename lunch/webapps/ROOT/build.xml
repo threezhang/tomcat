@@ -15,7 +15,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<project name="ROOT" default="build-main" basedir=".">
+<project name="ROOT" default="build-main" basedir="">
 
 
   <!-- ===================== Initialize Property Values =================== -->
@@ -43,7 +43,7 @@
   <!-- ================ BUILD: Copy Static Files ========================== -->
   <target name="build-static" depends="build-prepare">
     <copy todir="${webapps.build}/${webapp.name}">
-      <fileset dir=".">
+      <fileset dir="">
         <exclude name="build.*"/>
       </fileset>
     </copy>

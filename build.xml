@@ -541,11 +541,11 @@
   <target name="compile-prepare">
     <!-- Add the builtin catalina.properties -->
     <copy todir="java/org/apache/catalina/startup"
-          file="conf/catalina.properties" encoding="ISO-8859-1">
+          file="lunch/conf/catalina.properties" encoding="ISO-8859-1">
       <filterset refid="version.filters"/>
     </copy>
     <!-- Copy jdbc-pool documentation -->
-    <copy tofile="webapps/docs/jdbc-pool.xml"
+    <copy tofile="lunch/webapps/docs/jdbc-pool.xml"
           file="${tomcat.jdbc.dir}/doc/jdbc-pool.xml" encoding="ISO-8859-1">
       <filterset>
         <filter token="TOMCAT_PROJECT_DEST" value="project.xml"/>
@@ -730,20 +730,20 @@
   <target name="build-docs" depends="compile-prepare" description="Builds all documentation from XML sources">
 
     <copy todir="${tomcat.build}/webapps">
-      <fileset dir="webapps">
+      <fileset dir="lunch/webapps">
         <include name="docs/images/**"/>
         <include name="docs/WEB-INF/**"/>
         <include name="docs/appdev/*.txt"/>
         <include name="docs/appdev/sample/**"/>
       </fileset>
-      <fileset dir="webapps">
+      <fileset dir="lunch/webapps">
         <include name="docs/architecture/**"/>
         <exclude name="docs/architecture/*.xml"/>
       </fileset>
     </copy>
     <copy todir="${tomcat.build}/webapps" encoding="ISO-8859-1">
       <filterset refid="version.filters"/>
-      <fileset dir="webapps">
+      <fileset dir="lunch/webapps">
         <include name="docs/**/*.html"/>
       </fileset>
     </copy>
@@ -759,12 +759,12 @@
     </copy>
 
     <copy   tofile="${tomcat.build}/webapps/docs/appdev/sample/build.xml"
-              file="webapps/docs/appdev/build.xml.txt"/>
+              file="lunch/webapps/docs/appdev/build.xml.txt"/>
 
     <mkdir dir="${tomcat.build}/webapps/docs/funcspecs" />
 
     <!-- XSL processing -->
-    <xslt basedir="webapps/docs"
+    <xslt basedir="lunch/webapps/docs"
            destdir="${tomcat.build}/webapps/docs"
          extension=".html"
              style="webapps/docs/tomcat-docs.xsl"
@@ -778,7 +778,7 @@
       <param name="build-date" expression="${today}"/>
       <param name="year" expression="${year}"/>
     </xslt>
-    <xslt basedir="webapps/docs/appdev"
+    <xslt basedir="lunch/webapps/docs/appdev"
            destdir="${tomcat.build}/webapps/docs/appdev"
          extension=".html"
              style="webapps/docs/tomcat-docs.xsl"
@@ -792,7 +792,7 @@
       <param name="build-date" expression="${today}"/>
       <param name="year" expression="${year}"/>
     </xslt>
-    <xslt basedir="webapps/docs/funcspecs"
+    <xslt basedir="lunch/webapps/docs/funcspecs"
            destdir="${tomcat.build}/webapps/docs/funcspecs"
          extension=".html"
              style="webapps/docs/tomcat-docs.xsl"
@@ -806,7 +806,7 @@
       <param name="build-date" expression="${today}"/>
       <param name="year" expression="${year}"/>
     </xslt>
-    <xslt basedir="webapps/docs/config"
+    <xslt basedir="lunch/webapps/docs/config"
            destdir="${tomcat.build}/webapps/docs/config"
          extension=".html"
              style="webapps/docs/tomcat-docs.xsl"
@@ -820,7 +820,7 @@
       <param name="build-date" expression="${today}"/>
       <param name="year" expression="${year}"/>
     </xslt>
-    <xslt basedir="webapps/docs/architecture"
+    <xslt basedir="lunch/webapps/docs/architecture"
            destdir="${tomcat.build}/webapps/docs/architecture"
          extension=".html"
              style="webapps/docs/tomcat-docs.xsl"
@@ -835,7 +835,7 @@
       <param name="year" expression="${year}"/>
     </xslt>
 
-    <xslt basedir="webapps/docs/tribes"
+    <xslt basedir="lunch/webapps/docs/tribes"
                destdir="${tomcat.build}/webapps/docs/tribes"
              extension=".html"
                  style="webapps/docs/tomcat-docs.xsl"
@@ -882,7 +882,7 @@
     <!-- Copy static resource files -->
     <copy todir="${tomcat.build}/conf" encoding="ISO-8859-1">
       <filterset refid="version.filters"/>
-      <fileset dir="conf">
+      <fileset dir="lunch/conf">
         <include name="**/*.policy"/>
         <include name="**/*.xml"/>
         <include name="**/*.properties"/>
@@ -891,7 +891,7 @@
 
     <!-- Copy other regular webapps -->
     <copy todir="${tomcat.build}/webapps">
-      <fileset dir="webapps">
+      <fileset dir="lunch/webapps">
         <include name="ROOT/**"/>
         <exclude name="ROOT/index.jsp"/>
         <include name="examples/**"/>
@@ -901,7 +901,7 @@
     </copy>
     <copy todir="${tomcat.build}/webapps" encoding="ISO-8859-1">
       <filterset refid="version.filters" />
-      <fileset dir="webapps">
+      <fileset dir="lunch/webapps">
         <include name="ROOT/index.jsp"/>
       </fileset>
     </copy>
@@ -2372,7 +2372,7 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       <property name="tomcat.pool" value="${tomcat.pool}" />
     </ant>
     <!-- remove jdbc-pool documentation -->
-    <delete file="webapps/docs/jdbc-pool.xml"/>
+    <delete file="lunch/webapps/docs/jdbc-pool.xml"/>
   </target>
 
     
