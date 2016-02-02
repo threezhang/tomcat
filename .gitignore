@@ -35,6 +35,7 @@ mvn.properties
 maven-ant-tasks-*.jar
 thumbs.db
 Thumbs.db
+.idea/
 bin/setenv.*
 java/org/apache/catalina/startup/catalina.properties
 modules/jdbc-pool/bin
